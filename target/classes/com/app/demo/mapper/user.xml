@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.demo.dao.UserMapper">
+	<resultMap type="com.app.demo.domain.User" id="userMapper">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="password" column="password" />
+	</resultMap>
+	
+	<delete id="delete">
+		delete from user where id=#{id}
+	</delete>
+	
+	<insert id="insert" keyProperty="id" useGeneratedKeys="true">
+		insert into user(name, password) values(#{name}, #{password})
+	</insert>
+
+	<select id="select" resultMap="userMapper">
+		select * from user where id = #{id}
+	</select>
+
+	<update id="update">
+		update
+			user
+		set
+			name = #{name},
+			password = #{password} 
+		where 
+			id = #{id}
+	</update>
+	
+	<select id="list" resultMap="userMapper">
+		select * from user
+	</select>
+</mapper>

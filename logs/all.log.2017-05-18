@@ -1,0 +1,52 @@
+2017-05-18 15:36:40,892  INFO Application:48 - Starting Application on YUZHIYOU with PID 6368 (D:\WorkSpace\ActivitiTestApp\target\classes started by yuzhiyou in D:\WorkSpace\ActivitiTestApp)
+2017-05-18 15:36:40,895  INFO Application:637 - No active profile set, falling back to default profiles: default
+2017-05-18 15:36:40,983  INFO AnnotationConfigEmbeddedWebApplicationContext:582 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3439f68d: startup date [Thu May 18 15:36:40 CST 2017]; root of context hierarchy
+2017-05-18 15:36:42,033  INFO Version:30 - HV000001: Hibernate Validator 5.3.4.Final
+2017-05-18 15:36:42,267  WARN ClassPathMapperScanner:166 - No MyBatis mapper was found in '[com.app.demo.dao]' package. Please check your configuration.
+2017-05-18 15:36:42,562  INFO DefaultListableBeanFactory:828 - Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2017-05-18 15:36:42,624  WARN ClassPathMapperScanner:166 - No MyBatis mapper was found in '[com.app.demo]' package. Please check your configuration.
+2017-05-18 15:36:43,167  INFO AutowiredAnnotationBeanPostProcessor:155 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-05-18 15:36:43,313  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 - Bean 'org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration' of type [class org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 15:36:43,459  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 - Bean 'validator' of type [class org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 15:36:43,614  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7e3b285] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-05-18 15:36:44,812  INFO TomcatEmbeddedServletContainer:89 - Tomcat initialized with port(s): 8080 (http)
+2017-05-18 15:36:45,154  INFO ContextLoader:276 - Root WebApplicationContext: initialization completed in 4176 ms
+2017-05-18 15:36:45,598  INFO ServletRegistrationBean:190 - Mapping servlet: 'dispatcherServlet' to [/]
+2017-05-18 15:36:45,633  INFO FilterRegistrationBean:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-05-18 15:36:45,634  INFO FilterRegistrationBean:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-05-18 15:36:45,637  INFO FilterRegistrationBean:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-05-18 15:36:45,638  INFO FilterRegistrationBean:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2017-05-18 15:36:46,847  INFO LocalContainerEntityManagerFactoryBean:349 - Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-05-18 15:36:46,875  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-05-18 15:36:47,157  INFO Version:37 - HHH000412: Hibernate Core {5.0.11.Final}
+2017-05-18 15:36:47,161  INFO Environment:213 - HHH000206: hibernate.properties not found
+2017-05-18 15:36:47,164  INFO Environment:317 - HHH000021: Bytecode provider name : javassist
+2017-05-18 15:36:47,256  INFO Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-05-18 15:36:47,428  INFO Dialect:156 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-05-18 15:36:47,753  INFO LocalContainerEntityManagerFactoryBean:382 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-05-18 15:36:48,891  INFO RequestMappingHandlerAdapter:534 - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3439f68d: startup date [Thu May 18 15:36:40 CST 2017]; root of context hierarchy
+2017-05-18 15:36:49,052  INFO RequestMappingHandlerMapping:543 - Mapped "{[/]}" onto public com.app.demo.response.ResponseJson com.app.demo.controller.HelloController.hello()
+2017-05-18 15:36:49,059  INFO RequestMappingHandlerMapping:543 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-05-18 15:36:49,059  INFO RequestMappingHandlerMapping:543 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-05-18 15:36:49,183  INFO SimpleUrlHandlerMapping:354 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-05-18 15:36:49,184  INFO SimpleUrlHandlerMapping:354 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-05-18 15:36:49,276  INFO SimpleUrlHandlerMapping:354 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-05-18 15:36:49,510  WARN AbstractProcessEngineConfiguration:68 - No process definitions were found using the specified path (classpath:/processes/**.bpmn20.xml).
+2017-05-18 15:36:51,102  INFO ProcessEngineImpl:85 - ProcessEngine default created
+2017-05-18 15:36:51,104  INFO DefaultAsyncJobExecutor:95 - Starting up the default async job executor [org.activiti.spring.SpringAsyncExecutor].
+2017-05-18 15:36:51,106  INFO AcquireTimerJobsRunnable:45 - {} starting to acquire async jobs due
+2017-05-18 15:36:51,109  INFO AcquireAsyncJobsDueRunnable:45 - {} starting to acquire async jobs due
+2017-05-18 15:36:51,900  INFO AnnotationMBeanExporter:431 - Registering beans for JMX exposure on startup
+2017-05-18 15:36:52,054  INFO TomcatEmbeddedServletContainer:192 - Tomcat started on port(s): 8080 (http)
+2017-05-18 15:36:52,070  INFO Application:57 - Started Application in 11.869 seconds (JVM running for 12.619)
+2017-05-18 15:37:23,152  INFO DispatcherServlet:489 - FrameworkServlet 'dispatcherServlet': initialization started
+2017-05-18 15:37:23,203  INFO DispatcherServlet:508 - FrameworkServlet 'dispatcherServlet': initialization completed in 50 ms
+2017-05-18 15:37:23,302  INFO WebLogAspect:37 - URL:http://localhost:8080/
+2017-05-18 15:37:23,303  INFO WebLogAspect:38 - HTTP_METHOD:GET
+2017-05-18 15:37:23,303  INFO WebLogAspect:39 - IP:0:0:0:0:0:0:0:1
+2017-05-18 15:37:23,306  INFO WebLogAspect:40 - CLASS_METHOD:com.app.demo.controller.HelloController.hello
+2017-05-18 15:37:23,306  INFO WebLogAspect:41 - ARGS:[]
+2017-05-18 15:37:23,437  INFO WebLogAspect:47 - RESPONSE:ResponseJson [code=0, msg=OK, data=["hello","java"]]]
+2017-05-18 15:37:23,438  INFO WebLogAspect:48 - SPEND TIME:136
