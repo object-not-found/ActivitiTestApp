@@ -1,6 +1,10 @@
 package com.app.demo.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
+	
+	private static final long serialVersionUID = 2903674768796417621L;
 	private int id;
 	private String name;
 	private String password;
