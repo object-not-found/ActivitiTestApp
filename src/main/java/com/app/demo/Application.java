@@ -8,15 +8,18 @@ import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.app.demo.dataSource.DynamicDataSourceRegister;
 
 @SpringBootApplication
 @ServletComponentScan
+@Import({DynamicDataSourceRegister.class})  //注册多数据源
 public class Application extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
