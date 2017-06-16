@@ -24,7 +24,7 @@ public class UserServiceImpl extends AbstractBaseService<User, Long> implements 
 	}
 
 	@Cacheable(value="userList")
-//	@TargetDataSource("db1")  //指定数据源
+	@TargetDataSource("db1")  //指定数据源
 	@Override
 	public List<User> list() {
 		System.out.println("==========UserServiceImpl.list()  从数据库中获取数据============");

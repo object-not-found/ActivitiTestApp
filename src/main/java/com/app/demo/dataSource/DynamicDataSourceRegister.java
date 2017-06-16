@@ -73,7 +73,7 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
 		for(String prefix: prefixs.split(",")){
 			Map<String, Object> dsMap = propertyResolver.getSubProperties(prefix+".");
 			DataSource ds = buildDataSource(dsMap);
-			customDataSources.put(prefixs, ds);
+			customDataSources.put(prefix, ds);
 			dataBinder(ds, environment);
 		}
 	}
@@ -97,7 +97,8 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
 			String username = dsMap.get("username").toString();
 			String password = dsMap.get("password").toString();
 			
-			DataSourceBuilder factory = DataSourceBuilder.create().driverClassName(driverClassName).url(url).username(username).password(password);
+			DataSourceBuilder factory = DataSourceBuilder.create().driverClassName(driverClassName)
+					.url(url).username(username).password(password).type(dataSource);
 			return factory.build();
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
@@ -151,7 +152,7 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
 		
 		MutablePropertyValues mpv = beanDefinition.getPropertyValues();
 		mpv.addPropertyValue("defaultTargetDataSource", defaultDataSource);
-		mpv.add("targetDataSources", targetDataSources);
+		mpv.addPropertyValue("targetDataSources", targetDataSources);
 		registry.registerBeanDefinition("dataSource", beanDefinition);
 		
 	}

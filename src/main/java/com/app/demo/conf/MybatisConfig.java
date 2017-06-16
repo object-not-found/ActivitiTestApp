@@ -1,7 +1,8 @@
 package com.app.demo.conf;
 
+import javax.sql.DataSource;
+
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.tomcat.jdbc.pool.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +17,7 @@ public class MybatisConfig {
 
 	private static final String MAPPER_XML = "classpath*:com/app/demo/mapper/*.xml";
 	private static final String MAPPER_DOMAIN = "com.app.demo.domain";
-	@Bean
+	@Bean(name = "sqlSessionFactory")
 	public SqlSessionFactory sqlSessionFactory(DataSource ds) throws Exception{
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(ds);
@@ -24,5 +25,9 @@ public class MybatisConfig {
 		sqlSessionFactoryBean.setMapperLocations(pmr.getResources(MAPPER_XML));
 		sqlSessionFactoryBean.setTypeAliasesPackage(MAPPER_DOMAIN);
 		return sqlSessionFactoryBean.getObject();
+//		SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBean.getObject();
+//		sqlSessionFactory.getConfiguration().setMapUnderscoreToCamelCase(true);
+//		sqlSessionFactory.getConfiguration().setJdbcTypeForNull(JdbcType.NULL);
+//		return sqlSessionFactory;
 	}
 }
