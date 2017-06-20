@@ -21,6 +21,10 @@
 	<select id="select" resultMap="userMapper">
 		select * from user where id = #{id}
 	</select>
+	
+	<select id="findRoleIds" resultType="java.util.List">
+		select role_id from user_role where user_id = #{id}
+	</select>
 
 	<update id="update">
 		update

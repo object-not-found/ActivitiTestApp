@@ -31,4 +31,9 @@ public class UserServiceImpl extends AbstractBaseService<User, Long> implements 
 		return baseDao.list();
 	}
 
+	@Override
+	public List<Integer> findRoleIds(Integer userId) {
+		return baseDao.findRoleIds(userId);
+	}
+
 }

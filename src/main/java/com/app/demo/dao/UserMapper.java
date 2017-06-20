@@ -7,4 +7,5 @@ import com.app.demo.domain.User;
 
 public interface UserMapper extends BaseDao<User, Long>{
 	List<User> list();
+	List<Integer> findRoleIds(Integer userId);
 }
