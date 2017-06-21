@@ -1,7 +1,6 @@
 package com.app.demo.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class User implements Serializable{
 	
@@ -9,6 +8,7 @@ public class User implements Serializable{
 	private Integer id;
 	private String name;
 	private String password;
+	private String salt;
 
 	public Integer getId() {
 		return id;
@@ -27,5 +27,11 @@ public class User implements Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 }

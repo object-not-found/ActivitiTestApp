@@ -8,6 +8,7 @@
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="password" column="password" />
+		<result property="salt" column="salt"/>
 	</resultMap>
 	
 	<delete id="delete">
@@ -15,11 +16,20 @@
 	</delete>
 	
 	<insert id="insert" keyProperty="id" useGeneratedKeys="true">
-		insert into user(name, password) values(#{name}, #{password})
+		insert into user(name, password, salt) values(#{name}, #{password}, #{salt})
 	</insert>
 
 	<select id="select" resultMap="userMapper">
-		select * from user where id = #{id}
+		select * from user where 1=1 
+		<if test="id != null">
+			and id = #{id} 
+		</if>
+		<if test="name != null and name != ''">
+			and name = #{username} 
+		</if>
+		<if test="password != null and password != ''">
+			and password = #{password}
+		</if>
 	</select>
 	
 	<select id="findRoleIds" resultType="java.util.List">
@@ -31,7 +41,8 @@
 			user
 		set
 			name = #{name},
-			password = #{password} 
+			password = #{password},
+			salt = #{salt} 
 		where 
 			id = #{id}
 	</update>

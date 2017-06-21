@@ -1,6 +1,7 @@
 package com.app.demo.base;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import org.springframework.cache.annotation.Cacheable;
 
@@ -11,10 +12,10 @@ public abstract class AbstractBaseService<T, ID extends Serializable> implements
 
 	@Cacheable("select")
 	@Override
-	public T select(ID id) {
+	public T select(Map<String, Object> map) {
 		this.setBaseDao();
 		System.out.println("========select()===========");
-		return baseDao.select(id);
+		return baseDao.select(map);
 	}
 
 	@Override

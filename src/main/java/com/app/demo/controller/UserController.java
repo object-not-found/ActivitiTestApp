@@ -1,6 +1,8 @@
 package com.app.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +40,9 @@ public class UserController {
 	@RequestMapping(value="/view/{id}", method=RequestMethod.GET)
 	public ResponseJson view(@PathVariable Long id){
 		ResponseJson json = new ResponseJson();
-		User user = userService.select(id);
+		Map<String, Object> map = new HashMap<>();
+		map.put("id", id);
+		User user = userService.select(map);
 		json.setData(user);
 		return json;
 	}

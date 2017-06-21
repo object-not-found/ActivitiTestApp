@@ -17,9 +17,14 @@ import org.springframework.context.annotation.Configuration;
  * @author yuzhiyou
  *
  */
-@Configuration
-public class ShiroConfiguration {
+//@Configuration
+public abstract class ShiroConfiguration {
 
+	@Bean
+	public ShiroRealm shiroRealm(){
+		return new ShiroRealm();
+	}
+	
 	/**
 	 * 处理拦截资源文件问题
 	 * 注意：需要配置SecurityManager的bean，并注入到处理方法中
@@ -63,6 +68,7 @@ public class ShiroConfiguration {
 	@Bean
 	public SecurityManager securityManager(){
 		DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+		securityManager.setRealm(shiroRealm());
 		return securityManager;
 	}
 }
