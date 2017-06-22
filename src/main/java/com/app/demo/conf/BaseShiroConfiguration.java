@@ -6,9 +6,13 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.app.demo.filter.RolesAuthFilter;
+import com.app.demo.filter.UserAuthFilter;
 
 /**
  * shiro配置
@@ -18,11 +22,20 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 //@Configuration
-public abstract class ShiroConfiguration {
+public abstract class BaseShiroConfiguration {
 
 	@Bean
 	public ShiroRealm shiroRealm(){
-		return new ShiroRealm();
+		ShiroRealm realm = new ShiroRealm();
+//		realm.setCredentialsMatcher(hashedCredentialsMatcher());
+		return realm;
+	}
+	
+	public HashedCredentialsMatcher hashedCredentialsMatcher(){
+		HashedCredentialsMatcher hcm = new HashedCredentialsMatcher();
+		hcm.setHashAlgorithmName("md5");  //使用MD5加密
+		hcm.setHashIterations(2);  //加密两次
+		return hcm;
 	}
 	
 	/**
@@ -42,25 +55,32 @@ public abstract class ShiroConfiguration {
 		factoryBean.setSecurityManager(securityManager);
 		
 		//拦截器
-		Map<String, String> map = new HashMap<>();
-		//退出拦截器，具体实现代码Shiro已经实现
-		map.put("/logout", "logout");
-		//过滤链定义，从上而下顺序执行，一般将"/***"放在最下边
-		//authc：所有url都必须认证通过才可以访问；anon：所有url都可以匿名访问
-		map.put("/***", "authc");
+//		Map<String, String> map = new HashMap<>();
+//		//退出拦截器，具体实现代码Shiro已经实现
+//		map.put("/logout", "logout");
+//		//过滤链定义，从上而下顺序执行，一般将"/***"放在最下边
+//		//authc：所有url都必须认证通过才可以访问；anon：所有url都可以匿名访问
+//		map.put("/***", "authc");
+//		
+//		//默认自动寻找web工程根目录下的"/login.jsp"页面
+//		factoryBean.setLoginUrl("/login");
+//		//登陆成功后要跳转的链接
+//		factoryBean.setSuccessUrl("/index");
+//		//未授权界面
+//		factoryBean.setUnauthorizedUrl("/403");
+//		
+//		factoryBean.setFilterChainDefinitionMap(map);
 		
-		//默认自动寻找web工程根目录下的"/login.jsp"页面
-		factoryBean.setLoginUrl("/login");
-		//登陆成功后要跳转的链接
-		factoryBean.setSuccessUrl("/index");
-		//未授权界面
-		factoryBean.setUnauthorizedUrl("/403");
+		factoryBean.getFilters().put("userAuth", new UserAuthFilter());
+		factoryBean.getFilters().put("roleAuth", new RolesAuthFilter());
 		
-		factoryBean.setFilterChainDefinitionMap(map);
+		loadShiroFilterChain(factoryBean);
 		
 		return factoryBean;
 	}
 	
+	protected abstract void loadShiroFilterChain(ShiroFilterFactoryBean factoryBean);
+
 	/**
 	 * 核心安全事务管理器
 	 * @return

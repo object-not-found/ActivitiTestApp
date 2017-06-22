@@ -10,7 +10,10 @@ public enum StatusCode {
 	
 	TYPE_MISMATH(11001, "Parameter type mismath:[%s]"),  //参数类型匹配错误
 	MISSING_REQUEST_PATAMETER(11002, "Missing request parametere:[%s]"),  //缺失必要的字段
-	HTTP_MESSAGE_NOT_READABLE(11003, "Check Parameter");  //参考HttpMessageNotReadableException请求错误
+	HTTP_MESSAGE_NOT_READABLE(11003, "Check Parameter"),  //参考HttpMessageNotReadableException请求错误
+	
+	NOT_LOGGED_ON(11004, "not logged on"),
+	NO_PERMISSION(11005, "no permission");
 	
 	private int code;
 	private String msg;
